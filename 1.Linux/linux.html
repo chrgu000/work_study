@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>
+            1. 登陆Linux（ssh协议）
+            工具：Xshell 5.0
+            登陆：IP、端口(阿里云22 ，西部数码22000)、用户名（root）、密码
+
+
+            2. 安装文件传输工具
+            安装命令：yum install lrzsz -y  (rz命令才有效)
+            卸载命令：yum remove  lrzsz -y
+
+            上传文件：rz 【按回车，选文件】
+            下载文件：sz /home/dd.txt【按回车，选文件夹】
+            清屏：Ctrl + l
+            top命令 内存占用
+
+            看磁盘空间：df -h
+            看CPU型号： more /proc/cpuinfo | grep name
+            关闭防火墙：chkconfig iptables off (重启后生效-	需要重启) reboot
+            解压文件gz文件：  tar  -zxvf (文件名)xahot.tar.gz
+            解压文件zip文件：  unzip filename.zip
+
+            压缩文件夹 tar -zcvf /usr/local/apache/xahot.tar.gz htdocs （在htdocs 的上一个目录 命令输入地方）
+            删除文件夹 直接rm就可以了,删除之前会询问 y，不过要加两个参数-rf 即：rm -rf 目录名字（-r 就是向下递归，不管有多少级目录，一并删除 -f 就是直接强行删除，不作任何提示的意思）
+            新建文件夹 mkdir test（在当前目录新建test目录）
+            vim config.php 表示打开文件  i 表示编辑插入  esc 取消编辑 F4（是vim配置而来的）保存文件 大写的ZZ表示保存并且退出
+            gerp  查找文件内容， grep '要查找的字符串' 文件名
+            find  查找文件名 例如 find /-name *cron*
+
+            ls命令 是非常有用的查看文件与目录的命令  参与
+            -l 列出长数据串
+            -a 列出全部文件，连同隐藏文件
+            -h 将文件大小与易读的方式（KB,GB）列出来
+
+            cat 命令 该命令用于查看文本文件的内容 后接要查看的文件名
+            pwd 查看当前工作目录的完整路径，
+            cp 用于复制文件 
+            -a 将文件的特性一起复制 比如，文件的只读属性    cp -a file1 file2 连同文件的特性把文件file1复制成file2
+            -r 递归持续的复制，用于目录的复制               cp file1 file2 file3 dir 把文件 file1 ,file2,file3,复制到目录dir中
+            mv 用于移动文件，目录，重命名
+            mv file1 file2 file3 dir    把文件file1 file2 file3移动到目录dir中
+            mv file1 file2  把文件file1重命名为file2
+            ps aux 是window任务管理器一样，显示进程，占内存      
+            #目录权限
+            chmod 777 -R /usr/local/apache/htdocs 
+            crontab -e 部署定时任务，类似vim编辑器 ，每分钟新建一个文件
+            crontab -l 查看部署的定时任务
+            sh crontab.sh 手动执行脚本
+            linux查看ip地址命令 ifconfig查看网卡信息
+            kill 命令用于终止进程
+            链接分为: 硬链接 和 符号链接(软链接) 两种
+
+            linux静态文件库和动态文件库的扩展名
+            1. 静态函数库
+            这类库的名字一般是libxxx.a；利用静态函数库编译成的文件比较大--空间，因为整个函数库的所有数据都会被整合进目标代码中，他的优点就显而易见了，即编译后的执行程序不需要外部的函数库支持，因为所有使用的函数都已经被编译进去了。当然这也会成为他的缺点，因为如果静态函数库改变了，那么你的程序必须重新编译。
+            2. 动态函数库
+            这类库的名字一般是libxxx.so;相对于静态函数库，动态函数库在编译的时候并没有被编译进目标代码中，你的程序执行到相关函数时才调用该函数库里的相应函数，因此动态函数库所产生的可执行文件比较小。由于函数库没有被整合进你的程序，而是程序运行时动态的申请并调用--时间，所以程序的运行环境中必须提供相应的库。动态函数库的改变并不影响你的程序，所以动态函数库的升级/更新比较方便。
+
+            vim常见操作
+            命令模式(command-mode)
+            插入模式(insert-mode)
+            可视模式(visual-mode)
+            正常模式(normal-mode) 
+            Shift+Insert可以直接复制window复制的东西，使用Xshell软件
+
+            mysql
+            service mysqld restart 重启mysql服务  service mysqld stop 停止mysql服务  service mysqld start 开启mysql服务
+
+            注意:linux帮助命令 mysql 帮助命令 mysqldump --h
+            #include
+            voidumask(int mask);   // r-4; w-2; x-1
+            umask函数改变目录和文件的创建模式。
+
+
+
+            linux的守护进程
+            概述： Linux Daemon（守护进程）是运行在后台的一种特殊进程。它独立于控制终端并且周期性地执行某种任务或等待处理某些发生的事件。它不需要用户输入就能运行而且提供某种服务，不是对整个系统就是对某个用户程序提供服务。Linux系统的大多数服务器就是通过守护进程实现的。常见的守护进程包括系统日志进程syslogd、 web服务器httpd、邮件服务器sendmail和数据库服务器mysqld等。
+            守护进程一般在系统启动时开始运行，除非强行终止，否则直到系统关机都保持运行。守护进程经常以超级用户（root）权限运行，因为它们要使用特殊的端口（1-1024）或访问某些特殊的资源。
+            原理 
+            Linux 守护进程的工作模式是服务器/客户机（Server/Client），服务器在一个特定的端口上监听（Listen）等待客户连接，连接成功后服务器和客户端通过端口进行数据通信。守护进程的工作就是打开一个端口，并且监听（Listen）等待客户连接。如果客户端产生一个连接请求，守护进程就创建（Fork）一个子服务器响应这个连接，而主服务器继续监听其他的服务请求。
+            工作模式 
+            （1）stand-alone模式 
+            独立运行的守护进程由init负责管理，所有独立运行守护进程的脚本在/etc/rc.d/init.d/目录下。独立运行的守护进程工作方式称作stand-alone，是Unix传统的C/S模式的访问模式。服务器监听（Listen）在一个特定的端口上等待客户端的联机。如果客户端产生一个连接请求，守护进程就创建（Fork）一个子服务器响应这个连接，而主服务器继续监听。工作在stand-alone模式下的网络服务有route、gated、web服务器等。在Linux系统中通过stand-alone工作模式启动的服务由/etc/rc.d/下面对应的运行级别当中的符号链接启动。 
+            （2）xinetd模式 
+            从守护进程的概念可以看出，对于系统所要求的每一种服务，都必须运行一个监听某个端口连接所发生的守护进程，这意味着资源浪费。为了解决这个问题，Linux引进了"网络守护进程服务程序"的概念。Redhat Linux使用的网络守护进程是xinted（eXtended InterNET Daemon）。和stand－alone模式相比xinetd模式也称 InternetSuper-Server（超级服务器）。xinetd能够同时监听多个指定的端口，在接受用户请求时，他能够根据用户请求的端口不同，启动不同的网络服务进程来处理这些用户请求。可以把xinetd看做一个管理启动服务的管理服务器，它决定把一个客户请求交给那个程序处理，然后启动相应的守护进程。
+
+            和stand-alone工作模式相比，系统不必为每一个网络服务进程监听其服务端口，运行xinetd守护进程就可以同时监听所有服务端口，这样就降低了系统开销，保护系统资源。但是对于访问量大、经常出现并发访问时，xinetd想要频繁启动对应的网络服务进程，反而会导致系统性能下降。一般来说系统一些负载高的服务，比如Apache、sendmail等服务是单独启动的。而其他服务类型都可以使用xinetd超级服务器管理。
+
+            查看系统为Linux服务提供那种模式方法在Linux命令行可以使用pstree命令可以看到两种不同方式启动的网络服务。
+
+            Linux 守护进程编程 
+            编写守护进程的步骤：
+            （1）在父进程中执行fork并exit推出；
+            （2）在子进程中调用setsid函数创建新的会话；
+            （3）在子进程中调用chdir函数，让根目录 ”/” 成为子进程的工作目录；
+            （4）在子进程中调用umask函数，设置进程的umask为0；
+            （5）在子进程中关闭任何不需要的文件描述符
+
+            Setsid函数
+
+            <!--            #include<unistd.h>
+                            pid_tsetsid(void);
+                            返回值：成功返回新会话的ID；失败返回-1
+            
+                            setsid函数创建一个新会话和新进程组，setsid调用保证新会话没有控制终端。
+                            守护进程调用该函数将成为新会话的会话领导和新进程组的进程组领导。
+            
+                            chdir函数
+            
+                            #include<unistd.h>
+                                intchdir(const char *path);  
+                                chdir函数改变当前的工作目录为path所包含的新目录
+            
+                                umask函数
+            
+                                #include
+                                voidumask(int mask);   // r-4; w-2; x-1
+                                umask函数改变目录和文件的创建模式。-->
+        </div>
+    </body>
+</html>

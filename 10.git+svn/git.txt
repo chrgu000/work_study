@@ -1,0 +1,222 @@
+git 使用cmd窗口
+切换目录
+cd /d D:/wamp
+
+命令行模式 使用 git bash (有文本颜色，易于区分，使用git cmd 也可以)
+git的用户配置
+git config --global user.name "yjj"        //运行无返回结果（linux设计哲学，没返回消息就是好消息，操作成功）
+git config --global user.email "249894855@qq.com" 
+
+git 仓库  工作区  暂存区（提交到暂存区）
+
+本地创建git仓库
+
+创建版本库
+(1)mkdir c:/gitdir    //创建一个名为gitdir的空目录
+(2)cd gitdir          //进入该目录--无返回值
+(3)pwd                //查看当前目录--返回当前目录
+(4)git init           //初始化仓库--有操作提示在哪个目录创建仓库
+
+在c:/gitdir 创建一个文件 1.txt （随便写入内容）
+使用 git status // 查看工作区状态 提示新建的文件待提交
+使用命令 git add 1.txt  //提交到暂存区
+使用命令 git commit -m "添加一个文件" //提交文件 加上注释
+
+cat 1.txt  //查看文件
+vi  1.txt  //修改文件
+
+
+git diff //查看修改
+git log  //查看日志
+git reflog  //日志 版本号
+
+版本回退
+git reset --hard HEAD^   //回个上一个版本
+git rm a.txt  //从仓库中删除
+git mv 源文件路径  目标路径
+
+
+切换分支  --需要分支文件都提交
+git branch 
+git branch -r  //全部分支	
+git checkout master
+
+Git还提供了一个stash功能，可以把当前工作现场“储藏”起来，等以后恢复现场后继续工作：
+http://blog.csdn.net/u014540717/article/details/54314126
+
+     
+git checkout . 回复当前目录到最新版
+git 可以 先git pull  在git push
+
+
+git init
+关联远程仓库
+git remote add origin https://github.com/yjj249894855/php.git
+git remote add origin https://github.com/yjj249894855/yjj.git
+
+git remote add origin git@github.com:yjj249894855/php_yjj_accounts.git
+git remote add origin git@192.168.39.26:Develop/php_callcenter.git
+git remote add origin git@192.168.39.26:Develop/pay_admin.git
+git remote add origin git@192.168.39.26:Develop/pay_core.git
+git remote add origin git@192.168.39.26:Develop/pay_applications.git
+git remote add origin git@192.168.39.26:credit_business/sass-dashboard.git
+git remote add origin git@192.168.39.26:credit_business/saas.git
+可以通过如下命令进行代码合并【注：pull=fetch+merge]
+git pull --rebase origin master
+备注：上次可能有密码yjj123456
+首次 push 到远程仓库
+git push -u origin master 
+非首次推送到远程仓库
+git push origin master
+
+git init
+git remote add origin git@192.168.39.26:Develop/php_callcenter.git
+git pull --rebase origin master
+
+创建新分支
+git checkout -b audocall
+git checkout -b autocall
+提交该分支到远程仓库
+git push origin audocall
+
+git pull origin audocall
+git push origin audocall:audocall
+
+git push origin test:test
+
+git checkout call-log.php //还原删除的文件
+
+
+合并分支-在test 合并 audocall
+git checkout test
+git merge audocall
+git merge origin audocall
+
+//得出498c2e9197d2f79cb2458f8329f325bc7add935d （第一条）
+git log
+//合并一次提交的
+git cherry-pick 498c2e9197d2f79cb2458f8329f325bc7add935d
+
+//查看当前分支的操作记录
+git reflog --date=local | grep audocall 
+
+
+
+
+
+
+
+
+
+命令行模式 使用 git bash (有文本颜色，易于区分，使用git cmd 也可以)
+git的用户配置
+git config --global user.name "yjj249894855"        //运行无返回结果（linux设计哲学，没返回消息就是好消息，操作成功）
+git config --global user.email "249894855@qq.com"   //这2句的作用就是每次提交的时候做一个记录
+
+git config --global  --list  查看配置的信息
+git 仓库  工作区  暂存区（提交到暂存区）
+
+本地创建git仓库
+
+创建版本库
+(1)mkdir c:/gitdir    //创建一个名为gitdir的空目录
+(2)cd gitdir          //进入该目录--无返回值
+(3)pwd                //查看当前目录--返回当前目录
+(4)git init           //初始化仓库--有操作提示在哪个目录创建仓库
+
+在c:/gitdir 创建一个文件 1.txt （随便写入内容）
+使用 git status // 查看工作区状态 提示新建的文件待提交
+使用命令 git add 1.txt  //提交到暂存区
+使用命令 git commit -m "添加一个文件" //提交文件 加上注释
+
+cat 1.txt  //查看文件
+vi  1.txt  //修改文件
+
+
+git diff //查看修改
+git log  //查看日志
+git reflog  //日志 版本号
+
+版本回退
+git reset --hard HEAD^   //回个上一个版本
+git rm a.txt  //从仓库中删除
+git mv 源文件路径  目标路径
+
+
+切换分支  --需要分支文件都提交
+git branch 
+git branch -r  //全部分支	
+git checkout master
+
+Git还提供了一个stash功能，可以把当前工作现场“储藏”起来，等以后恢复现场后继续工作：
+http://blog.csdn.net/u014540717/article/details/54314126
+
+     
+git checkout . 回复当前目录到最新版
+git 可以 先git pull  在git push
+
+-------------------------------------------------
+window下配置SSH连接GitHub、GitHub配置ssh key--》https://jingyan.baidu.com/article/a65957f4e91ccf24e77f9b11.html
+-------------------------------------------------
+$ cd ~/.ssh 或cd .ssh   //备注：cd ~ cd 波浪线 这个键盘的 到这个目录
+如果没有则提示： No such file or directory
+如果有则进入~/.ssh路径下（ls查看当前路径文件，rm * 删除所有文件--》为重新生成准备）
+使用下面的语句重新生成ssh key。
+ssh-keygen -t rsa -C "249894855@qq.com"
+在C:\Users\Administrator\.ssh 这个目录下面多了2个文件
+id_rsa 私有密钥 id_rsa.pub 共有密钥（复制到github官网Settings→SSH kyes→Add SSH key）
+ 复制id_rsa.pub的公钥内容。 
+1) 进入c:/Users/xxxx_000/.ssh/目录下，打开id_rsa.pub文件，全选复制公钥内容。
+2) Title自定义，将公钥粘贴到GitHub中Add an SSH key的key输入框，最后“Add Key”。
+配置账户
+$ git config --global user.name “your_username”  #设置用户名
+$ git config --global user.email “your_registered_github_Email”  #设置邮箱地址(建议用注册giuhub的邮箱)
+测试ssh keys是否设置成功。
+$ ssh -T git@github.com
+The authenticity of host 'github.com (192.30.252.129)' can't be established.
+RSA key fingerprint is 16:27:xx:xx:xx:xx:xx:4d:eb:df:a6:48.
+Are you sure you want to continue connecting (yes/no)? yes #确认你是否继续联系，输入yes
+Warning: Permanently added 'github.com,192.30.252.129' (RSA) to the list of known hosts.
+Enter passphrase for key '/c/Users/xxxx_000/.ssh/id_rsa':  #生成ssh kye是密码为空则无此项，若设置有密码则有此项且，输入生成ssh key时设置的密码即可。（yjj123456）
+Hi xxx! You've successfully authenticated, but GitHub does not provide shell access. #出现词句话，说明设置成功。
+将本地项目通过SSH push到GitHub
+本地创建项目 
+1) 创建目录
+$ mkdir test
+$ cd test
+2) 初始化
+$ git init
+3) 创建hello.md文件
+$ echo "这是一次测试test ssh key" > hello.md
+4) 提交到本地
+若出现如上warning提示则重新提交一次即可。
+$ git add .   #提交当前目录下所以文件
+$ git commit -m "add hello.md"   #提交记录说明 
+5) 提交到github
+$ git remote add origin "https://github.com/yjj249894855/yjj.git"   //‘粘贴复制test ssh key的ssh路径(github上面的)’  #
+$ git push -u origin master
+Enter passphrase for key '/c/Users/hgpin_000/.ssh/id_rsa':  #ssh key设置密码故此需要输入密码(yjj123456)
+
+$ git remote add origin "http://192.168.39.26:8081/wanghai/yzk_callcenter.git"
+
+http://192.168.39.26:8081/wanghai/yzk_callcenter.git
+
+1.git clone git@192.168.39.26:wanghai/yzk_callcenter.git
+
+git clone git@192.168.39.26:Develop/php_callcenter.git
+
+git remote add origin "git@192.168.39.26:Develop/php_callcenter.git" 
+
+
+文档地址
+http://git.oschina.net/progit/
+
+
+
+
+
+
+
+
+
+

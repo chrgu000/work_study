@@ -1,0 +1,207 @@
+
+
+1.取模运算
+  a.echo 8%(-2);
+  结果为0
+  b.echo (-8)%3;
+  结果为-2
+  c.echo 8%(-3);
+  结果为2
+  d.echo 8%3;
+  结果为2
+  d.echo (-8)%(-3);
+  结果为-2
+
+2. 输出结果为10    备注：函数内部改变变量只函数内部有效
+
+$num = 10;
+function multiply(){
+$num = $num * 10;
+}
+multiply();
+echo $num;
+
+3. 输出内容是Hello  （销毁$b这个变量名，不改变$a的值）
+
+$a="hello";
+$b=&$a;
+unset($b);
+$b="world";
+echo $a;
+
+4.$a = 'abcdef' 请取出$a的值并打印出第一个字母
+echo $a{0} 或 echo substr($a，0，1)
+
+5.程序执行完输出The Value is: Dog
+
+define(myvalue, "10");
+$myarray[10] = "Dog";
+$myarray[] = "Human";
+$myarray['myvalue'] = "Cat";
+$myarray["Dog"] = "Cat";
+print "The value is: ";
+print $myarray[myvalue]."\n";
+
+6.三元运算符
+
+
+<?php
+header("Content-type: text/html; charset=utf-8");
+$strA = null;
+$strB = false;
+echo $strA == $strB ? '相等' : '不相等';
+$strC = '';
+$strD = 0;
+echo $strC==$strD ? '相等' : '不相等';
+$strE = 0;
+$strF = '0';
+echo $strE===$strF ? '相等' : "不相等 " ;
+?>
+//备注 以上都是三元运算符，
+null和false是相等的，都是空值；
+''和0都是空值；
+数字0和字符串0不全等，变量类型必须相同。
+
+7.输出用户的IP地址，并且判断用户的IP地址是否在192.168.1.100 — 192.168.1.150之间
+答：
+
+Echo $ip=getenv(‘REMOTE_ADDR’);
+$ip=Str_replace(‘.’,””,$ip);
+If($ip<1921681150 && $ip>1921681100)
+{
+Echo ’ip在192.168.1.100—–192.168.1.150之间‘;
+}
+Else
+{
+Echo ’ip不在192.168.1.100—–192.168.1.150之间‘;
+}
+
+8.不断在文件hello.txt头部写入一行“Hello World”字符串，要求代码完整
+
+$fp=fopen(‘hello.txt’,'r’);
+$str=’hello!’.”\n”;
+$str.=fread($fp,filesize(‘hello.txt’));
+fclose($fp);
+$fp1=fopen(‘hello.txt’,'w’);
+fwrite($fp1,$str);
+
+9.请写出下列PHP代码的执行结果 
+
+$var1 = 5;
+$var2 = 10;
+function foo(&$my_var)
+{
+ global $var1;
+ $var1 += 2;
+ $var2 = 4;
+ $my_var += 3; 
+ return $var2;
+}
+$my_var = 5;
+echo foo($my_var) . "\n";
+echo $my_var . "\n";
+echo $var1 . "\n";
+echo $var2 . "\n";
+$bar = 'foo';
+$my_var = 10;
+echo $bar($my_var) . "\n";
+
+答案：4 8 7 10 4
+
+分析： 1.第一个执行函数，函数输返回$var2，$var2在外面是10 ，但是函数的返回值是函数内部的4，所以结果为4
+
+2.输出$my_var。$my_var是传引用的，值加了3，所以结果为8
+
+3.输出$var1，$var1是全局变量，结果法师了改变，不是5 结果为7
+
+4.输出$var2，$var2是普通变量，结果不变还是10
+
+5.$bar($my_var) ，其实本质就是执行函数，相当于foo($my_var)
+
+10.函数静态变量
+
+<?php
+
+$count = 5;
+
+function get_count(){
+
+static $count = 0;
+
+return $count++;//return 后面的$count++无效
+
+}
+
+echo $count;
+
+++$count;
+
+echo $count;
+
+echo get_count();
+
+echo get_count();
+
+?>
+
+//结果为5601，静态变量只在函数内存在，函数外的变量不影响函数内的静态变量。再次调用静态变量改变；
+
+11.输出结果3$a\$a336
+
+$a=3;
+
+echo "$a",'$a',"\\\$a","$a"."$a","$a"+"$a";
+
+11.输出结果3$a///3336
+
+$a=3;
+
+echo "$a",'$a',"\\\$a","$a"."$a","$a"+"$a";
+
+
+12.输出结果57
+
+$f=0.58;
+
+var_dump(intval($f*100));
+
+12.输出结果158
+
+$f=1.58;
+
+var_dump(intval($f*100));
+
+
+13.冒泡排序 $arr 一维数组
+
+function getpao($arr) {
+
+    $len = count($arr);
+
+    //设置一个空数组 用来接收冒出来的泡
+
+    //该层循环控制 需要冒泡的轮数
+
+    for ($i = 1; $i < $len; $i++) { //该层循环用来控制每轮 冒出一个数 需要比较的次数
+
+        for ($k = 0; $k < $len - $i; $k++) {
+
+            if ($arr[$k] > $arr[$k + 1]) {
+
+                $tmp = $arr[$k + 1];
+
+                $arr[$k + 1] = $arr[$k];
+
+                $arr[$k] = $tmp;
+
+            }
+
+        }
+
+    }
+
+    return $arr;
+
+}
+
+

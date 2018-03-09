@@ -1,0 +1,15 @@
+2017年6月15日 17:39:38        
+$save = [
+            'fund_id' => 8,
+            'card_type' => 2,
+            'already_amount' => 0,
+            'service_fee' => 0,
+            'deposit' => 0,
+        ];
+         $savewhere = [
+            'order_id' => 68,
+            'phase_periods_num' => 2,
+        ];
+        $result = PeriodOrderFundServiceFeeLog::updateAll($save, $savewhere);
+        var_dump($result);
+        exit();
