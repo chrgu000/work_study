@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>PHP yjj work</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <div>
+        2018年3月9日 22:21:46 </br>
+        node.js下载 </br>
+        https://nodejs.org/en/ Download for Windows (x64) 8.10.0 LTS推荐对于大多数用户 Windows 下一步安装即可 </br>
+        完成以上步骤，NodeJS就安装完成了，工作并没完，我们还需要配置一下 </br>
+        打开D盘的Program Files\nodejs文件夹，你会发现nodejs文件夹下面有npm,直接用npm安装相环境既可。</br>
+        双击NPM.cmd配置环境，很快就完成了。</br>
+        我们要测试一下安装是否正确，win+R，出入cmd，回车，调出DOS窗口。因为安装时已经自动配置了环境变量，所以我们可以直接输入node,即可进入node.js交互模式。</br>
+        我们进入node之后，可以输入：</br>
+        console.log("Hello,World!");</br>
+        测试一下</br>
+        在D盘下建立一个app文件夹，app文件夹里面写一个test.js。 代码如下：
+        <script>
+            var http = require("http");
+
+            http.createServer(function (req, res) {
+
+                res.writeHead(200, { "Content-Type": "text/html" });
+
+                res.write("<h1>Node.js</h1>");
+
+                res.write("<p>Hello World</p>");
+
+                res.end("<p>beyondweb.cn</p>");
+
+            }).listen(3000);
+
+            console.log("HTTP server is listening at port 3000.");
+        </script> </br>
+        再从DOS窗口进入你的app的文件夹，在命令窗口执行【node test.js】。这样就可以在浏览器上访问你的js了。访问网址http://127.0.0.1:3000。如果你正常访问了，那么就安装成功了。</br>
+        ---->>>over
+    </div>
+</body>
+
+</html>
