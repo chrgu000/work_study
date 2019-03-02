@@ -25,7 +25,9 @@
 
             http.createServer(function (req, res) {
 
-                res.writeHead(200, { "Content-Type": "text/html" });
+                res.writeHead(200, {
+                    "Content-Type": "text/html"
+                });
 
                 res.write("<h1>Node.js</h1>");
 
@@ -36,7 +38,8 @@
             }).listen(3000);
 
             console.log("HTTP server is listening at port 3000.");
-        </script> </br>
+        </script>
+        </br>
         再从DOS窗口进入你的app的文件夹，在命令窗口执行【node test.js】。这样就可以在浏览器上访问你的js了。访问网址http://127.0.0.1:3000。如果你正常访问了，那么就安装成功了。</br>
         ---->>>over
     </div>
@@ -53,8 +56,22 @@
         cd code </br>
         mkdir koa2 </br>
         cd koa2 </br>
-        初始化生产package.json 文件  npm init -y   (-y 默认配置) </br>
+        初始化生产package.json 文件 npm init -y (-y 默认配置) </br>
         生成package.json后，安装koa包，我们这里使用npm来进行安装。 npm install --save koa （koa 默认就是koa2） </br>
+    </div>
+    <div>
+        2018年5月2日 15:52:10
+        使用一个类，得对外module.exports = HelibaoProtocolPayService;
+        2018年5月2日 18:51:29 </br>
+        <h1 style="color:red;">koa2 安装</h1>
+        JSON.parse(request_result);
+        querystring.parse(request_result);
+        2者区别
+        2018年5月2日 19:08:41
+        let time = new Date();
+        let send_time = time.Format("yyyyMMddHHmmss");
+        2者
+        let send_time = new Date().Format("yyyyMMddhhmmss");
     </div>
 </body>
 

@@ -13,7 +13,7 @@
         git init </br>
         git add README.md </br>
         git commit -m "first commit" </br>
-        git remote add origin git@github.com:yjj249894855/php_yjj_work.git </br>
+        git remote add origin git@github.com:yjj249894855/yjj_work.git </br>
         git push -u origin master //创建新的分支 </br>
     </div>
     <div>
@@ -25,5 +25,68 @@
         http://www.lmyjj.cn/portal/article/index/id/8.html
     </div>
 </body>
+git init 	本地初始化git（会在本地生成.git）
+git remote add origin https://github.com/lyh873468428/test.git		将本地的项目添加远程仓库
+git push origin dev		将本地当前分支的项目代码推到远程dev仓库里(没有当前分支对应的远程分支则创建)
+git push -u origin dev		将本地当前分支的项目代码推到远程dev仓库里,并建立当前分支与远程分支的默认关系
+
+git rebase master	用rebase合并主干的修改，如果有冲突在此时解决
+git checkout -b newBranchName origin/remoteBranchName 从远程分支拉去代码并在本地创建新的分支
+
+#本地
+git add .	将所有修改添加到暂存区
+git add *	*支持通配（类似于mysql的like）
+git commit -m '注释'	将所有暂存区的文件全部提交
+git reset "文件路径"	将暂存区的文件撤销
+git rm --cached "文件路径" 	不删除物理文件，仅将该文件从缓存中删除(!!但是在下次commit的时候会将版本库里的该文件删除,推荐使用git reset file)
+git rm --f  "文件路径"		不仅将该文件从缓存中删除，还会将物理文件删除
+
+git checkout filename   表示丢弃工作区的修改退回原始状态(!!慎用)
+git branch 查看本地所有分支
+git branch -a 查看所有分支(包括远程)
+git branch dev	创建本地分支
+git checkout -b dev # 此处其实是两步git branch dev加上git checkout dev
+git branch -D dev   删除本地dev分支
+git push orgin :dev  删除远程dev分支
+git branch -r -d origin/branch-name  //删除分支
+git push origin :branch-name  
+
+git remote prune origin //处理远程分支删除，但git branch -a还是显示远程分支
+
+git reset --hard commit-id	回滚到commit-id，讲commit-id之后提交的commit都去除
+git reset --hard HEAD~3		将最近3次的提交回滚
+
+git pull 将当前分支所对应的远程分支代码版本更新到本地当前的分支上
+git push 默认将当前分支的代码推送到与之对应的远程分支上
+
+git log --oneline --graph 可以查看到各个分支的情况
+git log --graph --date-order 图形化提交记录（--date-order日期排序）
+git log --pretty=oneline 简化版的提交记录
+
+git stash 隐藏工作去修改的代码（针对不想提交当前修改的代码）
+git stash pop stash@{num} (恢复现场)
+git stash drop stash@{num} (移除现场)
+
+git rebase 流程
+git checkout master
+git pull origin master
+git checkout lyh
+git pull origin lyh
+git rebase master
+
+解决冲突
+
+git add -u
+
+git rebase --continue
+.
+.
+.
+git push
+git rebase --abort(这个命令在git push前是退出到rebase解决冲突前时的代码)
+
+git cherry-pick 某个commit id   // 把某个commit id的提交合并到当前分支
+
+
 
 </html>
