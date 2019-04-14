@@ -1,3 +1,13 @@
+shell脚本
+#!/bin/bash
+https://blog.csdn.net/mxw2552261/article/details/83966771
+1.npm 发布代码后打包 
+2.workerman发布后执行reload
+3.脚本机添加用户
+4.每天备份myslq 删除30天之前的
+将shell脚本加入定时任务
+
+
 <!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
@@ -35,7 +45,7 @@ and open the template in the editor.
             压缩文件夹 tar -zcvf /usr/local/apache/xahot.tar.gz htdocs （在htdocs 的上一个目录 命令输入地方）
             删除文件夹 直接rm就可以了,删除之前会询问 y，不过要加两个参数-rf 即：rm -rf 目录名字（-r 就是向下递归，不管有多少级目录，一并删除 -f 就是直接强行删除，不作任何提示的意思）
             新建文件夹 mkdir test（在当前目录新建test目录）
-            vim config.php 表示打开文件  i 表示编辑插入  esc 取消编辑 F4（是vim配置而来的）保存文件 大写的ZZ表示保存并且退出
+            vim config.带 表示打开文件  i 表示编辑插入  esc 取消编辑 F4（是vim配置而来的）保存文件 大写的ZZ表示保存并且退出
             gerp  查找文件内容， grep '要查找的字符串' 文件名
             find  查找文件名 例如 find /-name *cron*
 

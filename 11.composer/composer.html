@@ -25,3 +25,11 @@
         </div>
     </body>
 </html>
+composer 更新指定包
+composer require 2amigos/yii2-ckeditor-widget
+
+composer update的时候，composer会去读取composer.json中指定的依赖，去分析他们，并且去拉取符合条件最新版本的依赖。
+然后他会把所拉取到的依赖放入vendor目录下，并且把所有拉取的依赖的精确版本号写入composer.lock文件中。
+
+composer install所执行的事情非常类似，只在第一步的时候有差别。当你本地如果已经存在一份composer.lock时，它将会去读取你的composer.lock而非composer.json，并且以此为标准去下载依赖。
+当你本地没有composer.lock的时候，它所做的事情和composer update其实并没有区别。

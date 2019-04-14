@@ -27,3 +27,33 @@
 </body>
 
 </html>
+Mongodb的优点与不足
+（1）Mongodb的不足之处
+1、在集群分片中的数据分布不均匀
+2、单机可靠性比较差
+3、大数据量持续插入，写入性能有较大波动
+4、磁盘空间占用比较大
+（2）Mongodb的过人之处
+1、无模式
+2、查询与索引方式灵活，是最像SQL的Nosql
+3、支持复制集、主备、互为主备、自动分片等特性
+--------------------- 
+
+
+Mongodb与redis相比较：
+
+mongoDB 源码语言是C++,redis也是C或C++,
+mongodb 文件存储是BSON格式类似JSON，或自定义的二进制格式。
+mongodb与redis性能都很依赖内存的大小，mongodb 有丰富的数据表达、索引；最类似于关系数据库，支持丰富的查询语言，redis数据丰富，较少的IO ，这方面mongodb优势明显。
+mongodb不支持事物，靠客户端自身保证，redis支持事物，比较弱，仅能保证事物中的操作按顺序执行，这方面 redis优于mongodb。
+mongodb对海量数据的访问效率提升，redis 较小数据量的性能及运算,这方面 mongodb性能优于redis .monbgodb 有mapredurce功能，提供数据分析，redis 没有 ，这方面 mongodb优于redis 。
+--------------------- 
+
+
+https://blog.csdn.net/shmnh/article/details/42833291
+
+https://blog.csdn.net/BruceChao5211/article/details/77839264
+
+https://www.cnblogs.com/fyy-hhzzj/p/9084063.html
+
+https://www.cnblogs.com/wangshouchang/p/6916679.html?utm_source=itdadao&utm_medium=referral
