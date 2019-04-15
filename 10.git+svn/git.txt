@@ -60,7 +60,9 @@ git remote add origin git@192.168.39.26:Develop/pay_admin.git
 git remote add origin git@192.168.39.26:Develop/pay_core.git
 git remote add origin git@192.168.39.26:Develop/pay_applications.git
 git remote add origin git@192.168.39.26:credit_business/sass-dashboard.git
-git remote add origin git@192.168.39.26:credit_business/saas.git
+git remote add origin http://192.168.1.199:8080/web/tob-ats.git
+git remote add origin git@192.168.1.199:web/tob-ats.git
+
 可以通过如下命令进行代码合并【注：pull=fetch+merge]
 git pull --rebase origin master
 备注：上次可能有密码yjj123456
