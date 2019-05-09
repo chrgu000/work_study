@@ -15,6 +15,8 @@ $dd=date('d/m/Y',$cc);
 
 3--》更改PHP语言中的时区设置通常有（2）方法.
 ------------------------------------
+date.timezone = "Asia/Shanghai"  //php.ini修改-重启fpm
+date.timezone = "PRC"  // 这种修改方式无效
 修改php.ini，在php.ini中找到data.timezone =去掉它前面的;号，然后设置data.timezone = “Asia/Shanghai”;即可。 
 在程序PHP 5以上版本的程序代码中使用函数ini_set('date.timezone','Asia/Shanghai');或者date_default_timezone_set(‘Asia/Shanghai');
 ------------------------------------

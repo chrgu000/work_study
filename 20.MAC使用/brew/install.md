@@ -15,6 +15,9 @@ localhost:8080
 #配置文件路径
 /usr/local/etc/nginx/nginx.conf
 
+### memcached
+/usr/local/bin/memcached -m 64 -p 11211 -u memcache -l 127.0.0.1
+
 ### php安装
 brew install php
 
@@ -66,6 +69,8 @@ sudo /usr/local/sbin/php-fpm -D  //开启php-fpm 注意用户权限
 
 brew install mysql
 
+
+
 安装好之后，执行mysql.server start
 
 mysql -u root -p
@@ -73,6 +78,9 @@ mysql -u root -p
 进入mysql  select version(): // 8.0.15
 
 问题：Mysql 8.0版本的加密方式MySQL 5.x的不一样，连接报错
+vim /usr/local/etc/my.cnf
+新增这个-laravel pdo 连接mysql报错 密码加密方式不一样-加如下默认配置即可
+default_authentication_plugin=mysql_native_password
 
 1.更改加密方式：
 
@@ -87,7 +95,11 @@ ALTER USER 'root'@'localhost' IDENTIFIED BY 'Yjj172679?' PASSWORD EXPIRE NEVER;
 ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'Yjj172679?';
 ```
 
+CREATE USER 'yjj'@'%' IDENTIFIED WITH mysql_native_password by 'Yjj172679?aa';
 
+GRANT ALL PRIVILEGES ON *.* TO 'mzmw'@'%' IDENTIFIED BY 'Yjj172679?aa' WITH GRANT OPTION;
+
+GRANT ALL PRIVILEGES ON laravel_api.* TO 'mzmw'@'%' IDENTIFIED BY 'Yjj172679?aa' WITH GRANT OPTION;
 3.刷新权限：
 
 ```
@@ -97,3 +109,16 @@ FLUSH PRIVILEGES;
 CREATE TABLE `tb_user_loan_order_repayment_period` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
 }
+
+
+安装扩展
+/usr/lib/php/extensions/no-debug-non-zts-20160303/token_crypt.so
+
+extension = /usr/local/Cellar/php56/5.6.33_9/include/php/token_crypt.so
+自定义扩展
+下载-解压-进入目录
+sudo /usr/local/opt/php56/bin/phpize
+./configure --prefix=/usr/local/Cellar/php56-tokenencrypt/1.0.3 --with-php-config=/usr/local/opt/php56/bin/php-config
+sudo ./configure --with-php-config=/usr/local/opt/php56/bin/php-config
+sudo make
+sudo make install
