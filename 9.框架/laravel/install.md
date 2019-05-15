@@ -29,6 +29,7 @@ server {
         include fastcgi_params;   
     }
 }
-
+### 浅析 Laravel 官方文档推荐的 Nginx 配置
+https://learnku.com/articles/25861
 #### storage 目录写权限
 chmod -R 777 storage

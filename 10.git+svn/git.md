@@ -12,3 +12,11 @@ git remote add origin https://github.com/githubusername/demo.git
 git pull --rebase origin master
 6.把本地库的内容推送到远程
 git push -u origin master
+ 
+git checkout -b ats-requirement-0509 origin/ats-requirement-0509
+
+git checkout -b 20190509 origin/20190509
+
+git checkout -b ats-requirement-0516 origin/ats-requirement-0516
+
+git checkout -b 20190516 origin/20190516
