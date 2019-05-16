@@ -53,6 +53,5 @@ CREATE TABLE `position_sensitive_field` (
   UNIQUE KEY `unique_top_id_field` (`top_id`,`field`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='敏感词';
 
-$uid = $this->getUid();
-$topId = $this->getTopId($uid);
-$parentId = $this->getParentId($uid);
+use tobusiness;
+INSERT INTO menu_setting(name,link,is_new,parent_id) VALUES('敏感词设置','/settings/mgc',1,27);

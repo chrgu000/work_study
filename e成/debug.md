@@ -1,0 +1,1 @@
+app()->make(PositionSensitiveService::class)->checkPositionSensitiveTemplate($request);
