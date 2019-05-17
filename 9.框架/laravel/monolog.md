@@ -8,3 +8,6 @@ cat -n /usr/local/var/log/laravel_api/info-2019-05-16.log | grep 'UserService::l
 
 //倒序多少行查询
 cat -n /usr/local/var/log/laravel_api/info-2019-05-16.log | grep  -55 'UserService::logceshi' | tail -n 200
+
+
+cat /usr/local/var/log/laravel_api/catch_error-2019-05-17.log | grep -8 'UserController::ceshi'
