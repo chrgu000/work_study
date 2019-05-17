@@ -8,7 +8,6 @@
 ssh-keygen -t rsa -C "jianjun.yan@ifchange.com"
 ssh-keygen -t rsa -C "jianjun.yan@ifchange.com” -f ~/.ssh/id_rsa_ifchange
 //执行命令的目录在mac用户根目录
-
 ssh-add ~/.ssh/id_rsa $ ssh-add ~/.ssh/id_rsa_ifchange
 
 # gitlab
